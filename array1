@@ -1,0 +1,50 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n, i,j;
+    float num[100], sum=0.0, average;
+	int temp;
+
+    cout << "Enter the numbers test score: ";
+    cin >> n;
+
+    while (n > 100 || n <= 0)
+    {
+        cout << "Error! number should in range of (1 to 100)." << endl;
+        cout << "Enter the number again: ";
+        cin >> n;
+    }
+
+    for(i = 0; i < n; ++i)
+    {
+        cout << i + 1 << ". Enter test score: ";
+        cin >> num[i];
+        sum += num[i];
+    }
+
+    average = sum / n;
+    cout << "Average = " << average<< endl;
+	for(i=0;i<n;i++)
+	{		
+		for(j=i+1;j<n;j++)
+		{
+			if(num[i]>num[j])
+			{
+				temp  =num[i];
+				num[i]=num[j];
+				num[j]=temp;
+			}
+		}
+	}
+	
+	//print sorted array elements
+	cout<<"Sorted (Ascending Order) test score:"<<endl;
+	for(i=0;i<n;i++)
+		cout<<num[i]<<"\t";
+	cout<<endl;	
+system ("pause");
+    return 0;
+	
+}
